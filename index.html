@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Полное меню на неделю для двоих</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f7fa;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        .tabs {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 20px;
+            gap: 5px;
+        }
+        .tab {
+            padding: 10px 20px;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        .tab:hover, .tab.active {
+            background-color: #3498db;
+            color: white;
+        }
+        .tab-content {
+            display: none;
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
+        }
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 25px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+            font-weight: 600;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .meal-type {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        .nutrition-facts {
+            font-size: 0.9em;
+            color: #7f8c8d;
+        }
+        .note {
+            background-color: #e3f2fd;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin: 25px 0;
+            border-left: 4px solid #3498db;
+        }
+        .total {
+            font-weight: 600;
+            background-color: #e8f5e9;
+            padding: 10px 15px;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        .recipe {
+            margin-top: 15px;
+            padding: 15px;
+            background-color: #fff8e1;
+            border-radius: 5px;
+        }
+        .price {
+            font-weight: bold;
+            color: #2e7d32;
+        }
+        .day-section {
+            margin-bottom: 40px;
+        }
+        @media (max-width: 768px) {
+            .tabs {
+                flex-direction: column;
+            }
+            table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Полное меню на неделю для двоих</h1>
+        <p>Калорийность: 2000 и 1300 ккал в день | Без лука, субпродуктов, кабачков, баклажанов и тыквы</p>
+
+        <div class="tabs">
+            <div class="tab active" onclick="openTab(event, 'menu')">Меню</div>
+            <div class="tab" onclick="openTab(event, 'shopping')">Список покупок</div>
+            <div class="tab" onclick="openTab(event, 'recipes')">Рецепты</div>
+        </div>
+
+        <!-- Меню на неделю -->
+        <div id="menu" class="tab-content active">
+            <h2>Меню на неделю</h2>
+
+            <!-- Понедельник -->
+            <div class="day-section">
+                <h3>Понедельник</h3>
+                <table>
+                    <tr>
+                        <th>Прием пищи</th>
+                        <th>2000 ккал</th>
+                        <th>1300 ккал</th>
+                        <th>БЖУ (2000 ккал)</th>
+                    </tr>
+                    <tr>
+                        <td class="meal-type">Завтрак</td>
+                        <td>Омлет с сыром и помидорами (2 яйца, 20г сыра, 100г помидоров) + хлеб 60г</td>
+                        <td>Омлет (1 яйцо, 10г сыра, 50г помидоров) + хлеб 30г</td>
+                        <td class="nutrition-facts">Б: 32г | Ж: 25г | У: 45г</td>
+                    </tr>
+                    <tr>
+                        <td class="meal-type">Обед</td>
+                        <td>Куриная грудка запеченная 120г + гречка 80г + огурец</td>
+                        <td>Курица 80г + гречка 50г + огурец</td>
+                        <td class="nutrition-facts">Б: 45г | Ж: 15г | У: 60г</td>
+                    </tr>
+                    <tr>
+                        <td class="meal-type">Ужин</td>
+                        <td>Творог 150г с медом 10г + банан</td>
+                        <td>Творог 100г + яблоко</td>
+                        <td class="nutrition-facts">Б: 28г | Ж: 10г | У: 40г</td>
+                    </tr>
+                    <tr>
+                        <td>Перекусы</td>
+                        <td>Йогурт 150г + орехи 20г (400 ккал)</td>
+                        <td>Йогурт 100г (230 ккал)</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3"><span class="total">Итого: 2000 ккал | 1300 ккал</span></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Вторник -->
+            <div class="day-section">
+                <h3>Вторник</h3>
+                <table>
+                    <tr>
+                        <th>Прием пищи</th>
+                        <th>2000 ккал</th>
+                        <th>1300 ккал</th>
+                        <th>БЖУ (2000 ккал)</th>
+                    </tr>
+                    <tr>
+                        <td class="meal-type">Завтрак</td>
+                        <td>Творожная запеканка 150г + ягоды 100г</td>
+                        <td>Запеканка 100г + ягоды 50г</td>
+                        <td class="nutrition-facts">Б: 30г | Ж: 12г | У: 50г</td>
+                    </tr>
+                    <tr>
+                        <td class="meal-type">Обед</td>
+                        <td>Филе индейки 120г + картофель 150г + салат из огурцов</td>
+                        <td>Индейка 80г + картофель 100г</td>
+                        <td class="nutrition-facts">Б: 42г | Ж: 18г | У: 55г</td>
+                    </tr>
+                    <tr>
+                        <td class="meal-type">Ужин</td>
+                        <td>Запеченная треска 150г + стручковая фасоль</td>
+                        <td>Треска 100г + фасоль</td>
+                        <td class="nutrition-facts">Б: 35г | Ж: 15г | У: 40г</td>
+                    </tr>
+                    <tr>
+                        <td>Перекусы</td>
+                        <td>Сыр 30г + хлебцы 20г (420 ккал)</td>
+                        <td>Сыр 15г (260 ккал)</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3"><span class="total">Итого: 2000 ккал | 1300 ккал</span></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Среда -->
+            <div class="day-section">
+                <h3>Среда</h3>
+                <table>
+                    <tr>
+                        <th>Прием пищи</th>
+                        <th>2000 ккал</th>
+                        <th>1300 ккал</th>
+                        <th>БЖУ (2000 ккал)</th>
+                    </tr>
+                    <tr>
+                        <td class="meal-type">Завтрак</td>
+                        <td>Овсяная каша на молоке 60г + орехи 20г</td>
+                        <td>Овсянка 40г + мед 5г</td>
+                        <td class="nutrition-facts">Б: 25г | Ж: 20г | У: 65г</td>
+                    </tr>
+                    <tr>
+                        <td class="meal-type">Обед</td>
+                        <td>Говяжьи котлеты 120г + рис 80г + морковь тушеная</td>
+                        <td>Котлеты 80г + рис 50г</td>
+                        <td class="nutrition-facts">Б: 45г | Ж: 25г | У: 60г</td>
+                    </tr>
+                    <tr>
+                        <td class="meal-type">Ужин</td>
+                        <td>Салат "Цезарь" с курицей 150г</td>
+                        <td>Салат с курицей 100г</td>
+                        <td class="nutrition-facts">Б: 35г | Ж: 20г | У: 45г</td>
+                    </tr>
+                    <tr>
+                        <td>Перекусы</td>
+                        <td>Творог 100г + груша (380 ккал)</td>
+                        <td>Творог 50г (220 ккал)</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3"><span class="total">Итого: 2000 ккал | 1300 ккал</span></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Четверг -->
+            <div class="day-section">
+                <h3>Четверг</h3>
+                <table>
+                    <tr>
+                        <th>Прием пищи</th>
+                        <th>2000 ккал</th>
+                        <th>1300 ккал</th>
+                        <th>БЖУ (2000 ккал)</th>
+                    </tr>
+                    <tr>
+                        <td class="meal-type">Завтрак</td>
+                        <td>Гречневая каша 80г + сыр 30г</td>
+                        <td>Гречка 50г + сыр 15г</td>
+                        <td class="nutrition-facts">Б: 30г | Ж: 18г | У: 55г</td>
+                    </tr>
+                    <tr>
+                        <td class="meal-type">Обед</td>
+                        <td>Куриные наггетсы 150г + картофель запеченный</td>
+                        <td>Наггетсы 100г + картофель</td>
+                        <td class="nutrition-facts">Б: 40г | Ж: 25г | У: 60г</td>
+                    </tr>
+                    <tr>
+                        <td class="meal-type">Ужин</td>
+                        <td>Запеченные перцы с сыром (2 перца, 80г сыра)</td>
+                        <td>Перцы с сыром (1 перец, 50г сыра)</td>
+                        <td class="nutrition-facts">Б: 28г | Ж: 22г | У: 35г</td>
+                    </tr>
+                    <tr>
+                        <td>Перекусы</td>
+                        <td>Кефир 200мл + орехи 15г (380 ккал)</td>
+                        <td>Кефир 100мл (180 ккал)</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3"><span class="total">Итого: 2000 ккал | 1300 ккал</span></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Пятница -->
+            <div class="day-section">
+                <h3>Пятница</h3>
+                <table>
+                    <tr>
+                        <th>Прием пищи</th>
+                        <th>2000 ккал</th>
+                        <th>1300 ккал</th>
+                        <th>БЖУ (2000 ккал)</th>
+                    </tr>
+                    <tr>
+                        <td class="meal-type">Завтрак</td>
+                        <td>Сырники 2шт (150г творога) + сметана</td>
+                        <td>Сырник 1шт (100г творога)</td>
+                        <td class="nutrition-facts">Б: 35г | Ж: 20г | У: 50г</td>
+                    </tr>
+                    <tr>
+                        <td class="meal-type">Обед</td>
+                        <td>Филе судака 150г + рис 80г</td>
+                        <td>Судак 100г + рис 50г</td>
+                        <td class="nutrition-facts">Б: 45г | Ж: 15г | У: 55г</td>
+                    </tr>
+                    <tr>
+                        <td class="meal-type">Ужин</td>
+                        <td>Винегрет без лука 250г + курица 100г</td>
+                        <td>Винегрет 150г + курица 70г</td>
+                        <td class="nutrition-facts">Б: 30г | Ж: 12г | У: 45г</td>
+                    </tr>
+                    <tr>
+                        <td>Перекусы</td>
+                        <td>Яблоко + йогурт 150г (400 ккал)</td>
+                        <td>Яблоко (200 ккал)</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3"><span class="total">Итого: 2000 ккал | 1300 ккал</span></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Суббота -->
+            <div class="day-section">
+                <h3>Суббота</h3>
+                <table>
+                    <tr>
+                        <th>Прием пищи</th>
+                        <th>2000 ккал</th>
+                        <th>1300 ккал</th>
+                        <th>БЖУ (2000 ккал)</th>
+                    </tr>
+                    <tr>
+                        <td class="meal-type">Завтрак</td>
+                        <td>Яичница с ветчиной (2 яйца + 40г ветчины) + хлеб</td>
+                        <td>Яичница (1 яйцо + 20г ветчины)</td>
+                        <td class="nutrition-facts">Б: 38г | Ж: 30г | У: 40г</td>
+                    </tr>
+                    <tr>
+                        <td class="meal-type">Обед</td>
+                        <td>Плов с курицей 150г</td>
+                        <td>Плов 100г</td>
+                        <td class="nutrition-facts">Б: 42г | Ж: 25г | У: 65г</td>
+                    </tr>
+                    <tr>
+                        <td class="meal-type">Ужин</td>
+                        <td>Творожная запеканка 150г + ягоды</td>
+                        <td>Запеканка 100г</td>
+                        <td class="nutrition-facts">Б: 32г | Ж: 15г | У: 45г</td>
+                    </tr>
+                    <tr>
+                        <td>Перекусы</td>
+                        <td>Банан + орехи 15г (400 ккал)</td>
+                        <td>Банан (230 ккал)</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3"><span class="total">Итого: 2000 ккал | 1300 ккал</span></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Воскресенье -->
+            <div class="day-section">
+                <h3>Воскресенье</h3>
+                <table>
+                    <tr>
+                        <th>Прием пищи</th>
+                        <th>2000 ккал</th>
+                        <th>1300 ккал</th>
+                        <th>БЖУ (2000 ккал)</th>
+                    </tr>
+                    <tr>
+                        <td class="meal-type">Завтрак</td>
+                        <td>Блинчики с творогом 3шт</td>
+                        <td>Блинчики 2шт</td>
+                        <td class="nutrition-facts">Б: 35г | Ж: 20г | У: 60г</td>
+                    </tr>
+                    <tr>
+                        <td class="meal-type">Обед</td>
+                        <td>Говяжьи биточки 120г + гречка 80г</td>
+                        <td>Биточки 80г + гречка 50г</td>
+                        <td class="nutrition-facts">Б: 45г | Ж: 25г | У: 55г</td>
+                    </tr>
+                    <tr>
+                        <td class="meal-type">Ужин</td>
+                        <td>Салат с тунцом 150г + хлеб</td>
+                        <td>Салат с тунцом 100г</td>
+                        <td class="nutrition-facts">Б: 40г | Ж: 15г | У: 35г</td>
+                    </tr>
+                    <tr>
+                        <td>Перекусы</td>
+                        <td>Йогурт + хлебцы (400 ккал)</td>
+                        <td>Йогурт (240 ккал)</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3"><span class="total">Итого: 2000 ккал | 1300 ккал</span></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Список покупок -->
+        <div id="shopping" class="tab-content">
+            <h2>Список покупок на неделю</h2>
+            <p>Цены указаны средние для Ростовской области (июнь 2024)</p>
+
+            <table>
+                <tr>
+                    <th>Продукт</th>
+                    <th>Количество</th>
+                    <th>Цена (руб)</th>
+                    <th>Сумма</th>
+                </tr>
+                <tr>
+                    <td>Куриное филе</td>
+                    <td>1,5 кг</td>
+                    <td class="price">350 руб/кг</td>
+                    <td class="price">525 руб</td>
+                </tr>
+                <tr>
+                    <td>Филе индейки</td>
+                    <td>400 г</td>
+                    <td class="price">450 руб/кг</td>
+                    <td class="price">180 руб</td>
+                </tr>
+                <tr>
+                    <td>Говяжий фарш</td>
+                    <td>600 г</td>
+                    <td class="price">500 руб/кг</td>
+                    <td class="price">300 руб</td>
+                </tr>
+                <tr>
+                    <td>Говяжья вырезка</td>
+                    <td>400 г</td>
+                    <td class="price">700 руб/кг</td>
+                    <td class="price">280 руб</td>
+                </tr>
+                <tr>
+                    <td>Филе трески</td>
+                    <td>300 г</td>
+                    <td class="price">700 руб/кг</td>
+                    <td class="price">210 руб</td>
+                </tr>
+                <tr>
+                    <td>Филе судака</td>
+                    <td>300 г</td>
+                    <td class="price">750 руб/кг</td>
+                    <td class="price">225 руб</td>
+                </tr>
+                <tr>
+                    <td>Консервированный тунец</td>
+                    <td>1 банка (200 г)</td>
+                    <td class="price">150 руб</td>
+                    <td class="price">150 руб</td>
+                </tr>
+                <tr>
+                    <td>Яйца</td>
+                    <td>20 шт</td>
+                    <td class="price">120 руб/десяток</td>
+                    <td class="price">240 руб</td>
+                </tr>
+                <tr>
+                    <td>Творог 5-9%</td>
+                    <td>1,5 кг</td>
+                    <td class="price">200 руб/кг</td>
+                    <td class="price">300 руб</td>
+                </tr>
+                <tr>
+                    <td>Сыр твердый</td>
+                    <td>300 г</td>
+                    <td class="price">600 руб/кг</td>
+                    <td class="price">180 руб</td>
+                </tr>
+                <tr>
+                    <td>Йогурт натуральный</td>
+                    <td>1 л</td>
+                    <td class="price">100 руб/литр</td>
+                    <td class="price">100 руб</td>
+                </tr>
+                <tr>
+                    <td>Кефир</td>
+                    <td>1 л</td>
+                    <td class="price">90 руб/литр</td>
+                    <td class="price">90 руб</td>
+                </tr>
+                <tr>
+                    <td>Сметана</td>
+                    <td>200 г</td>
+                    <td class="price">150 руб/кг</td>
+                    <td class="price">30 руб</td>
+                </tr>
+                <tr>
+                    <td>Молоко</td>
+                    <td>1 л</td>
+                    <td class="price">80 руб/литр</td>
+                    <td class="price">80 руб</td>
+                </tr>
+                <tr>
+                    <td>Гречка</td>
+                    <td>500 г</td>
+                    <td class="price">100 руб/кг</td>
+                    <td class="price">50 руб</td>
+                </tr>
+                <tr>
+                    <td>Рис</td>
+                    <td>500 г</td>
+                    <td class="price">80 руб/кг</td>
+                    <td class="price">40 руб</td>
+                </tr>
+                <tr>
+                    <td>Овсяные хлопья</td>
+                    <td>400 г</td>
+                    <td class="price">70 руб/кг</td>
+                    <td class="price">28 руб</td>
+                </tr>
+                <tr>
+                    <td>Мука пшеничная</td>
+                    <td>300 г</td>
+                    <td class="price">60 руб/кг</td>
+                    <td class="price">18 руб</td>
+                </tr>
+                <tr>
+                    <td>Манка</td>
+                    <td>100 г</td>
+                    <td class="price">80 руб/кг</td>
+                    <td class="price">8 руб</td>
+                </tr>
+                <tr>
+                    <td>Мед</td>
+                    <td>100 г</td>
+                    <td class="price">500 руб/кг</td>
+                    <td class="price">50 руб</td>
+                </tr>
+                <tr>
+                    <td>Орехи грецкие</td>
+                    <td>150 г</td>
+                    <td class="price">600 руб/кг</td>
+                    <td class="price">90 руб</td>
+                </tr>
+                <tr>
+                    <td>Хлеб цельнозерновой</td>
+                    <td>1 буханка</td>
+                    <td class="price">60 руб</td>
+                    <td class="price">60 руб</td>
+                </tr>
+                <tr>
+                    <td>Хлебцы</td>
+                    <td>1 упаковка</td>
+                    <td class="price">100 руб</td>
+                    <td class="price">100 руб</td>
+                </tr>
+                <tr>
+                    <td>Помидоры</td>
+                    <td>800 г</td>
+                    <td class="price">200 руб/кг</td>
+                    <td class="price">160 руб</td>
+                </tr>
+                <tr>
+                    <td>Огурцы</td>
+                    <td>1 кг</td>
+                    <td class="price">150 руб/кг</td>
+                    <td class="price">150 руб</td>
+                </tr>
+                <tr>
+                    <td>Морковь</td>
+                    <td>1 кг</td>
+                    <td class="price">40 руб/кг</td>
+                    <td class="price">40 руб</td>
+                </tr>
+                <tr>
+                    <td>Картофель</td>
+                    <td>2 кг</td>
+                    <td class="price">30 руб/кг</td>
+                    <td class="price">60 руб</td>
+                </tr>
+                <tr>
+                    <td>Свекла</td>
+                    <td>300 г</td>
+                    <td class="price">50 руб/кг</td>
+                    <td class="price">15 руб</td>
+                </tr>
+                <tr>
+                    <td>Стручковая фасоль (замороженная)</td>
+                    <td>400 г</td>
+                    <td class="price">200 руб/кг</td>
+                    <td class="price">80 руб</td>
+                </tr>
+                <tr>
+                    <td>Болгарский перец</td>
+                    <td>3 шт</td>
+                    <td class="price">50 руб/шт</td>
+                    <td class="price">150 руб</td>
+                </tr>
+                <tr>
+                    <td>Шампиньоны</td>
+                    <td>300 г</td>
+                    <td class="price">300 руб/кг</td>
+                    <td class="price">90 руб</td>
+                </tr>
+                <tr>
+                    <td>Зелень (петрушка/укроп)</td>
+                    <td>1 пучок</td>
+                    <td class="price">30 руб</td>
+                    <td class="price">30 руб</td>
+                </tr>
+                <tr>
+                    <td>Салат листовой</td>
+                    <td>1 упаковка</td>
+                    <td class="price">100 руб</td>
+                    <td class="price">100 руб</td>
+                </tr>
+                <tr>
+                    <td>Яблоки</td>
+                    <td>1,5 кг</td>
+                    <td class="price">100 руб/кг</td>
+                    <td class="price">150 руб</td>
+                </tr>
+                <tr>
+                    <td>Бананы</td>
+                    <td>6 шт</td>
+                    <td class="price">80 руб/кг</td>
+                    <td class="price">120 руб</td>
+                </tr>
+                <tr>
+                    <td>Груши</td>
+                    <td>5 шт</td>
+                    <td class="price">120 руб/кг</td>
+                    <td class="price">150 руб</td>
+                </tr>
+                <tr>
+                    <td>Сезонные ягоды</td>
+                    <td>300 г</td>
+                    <td class="price">400 руб/кг</td>
+                    <td class="price">120 руб</td>
+                </tr>
+                <tr>
+                    <td>Масло подсолнечное</td>
+                    <td>200 мл</td>
+                    <td class="price">150 руб/литр</td>
+                    <td class="price">30 руб</td>
+                </tr>
+                <tr>
+                    <td>Масло оливковое</td>
+                    <td>100 мл</td>
+                    <td class="price">600 руб/литр</td>
+                    <td class="price">60 руб</td>
+                </tr>
+                <tr>
+                    <td>Сливочное масло</td>
+                    <td>200 г</td>
+                    <td class="price">400 руб/кг</td>
+                    <td class="price">80 руб</td>
+                </tr>
+                <tr>
+                    <td>Томатная паста</td>
+                    <td>100 г</td>
+                    <td class="price">100 руб</td>
+                    <td class="price">100 руб</td>
+                </tr>
+                <tr>
+                    <td>Ветчина</td>
+                    <td>200 г</td>
+                    <td class="price">500 руб/кг</td>
+                    <td class="price">100 руб</td>
+                </tr>
+                <tr>
+                    <td colspan="3" style="text-align: right;"><strong>Итого:</strong></td>
+                    <td class="price">4,215 руб</td>
+                </tr>
+            </table>
+
+            <div class="note">
+                <h3>Советы по покупкам:</h3>
+                <ul>
+                    <li>Мясо и рыбу можно закупать на 3-4 дня, затем докупать свежие</li>
+                    <li>Овощи и фрукты лучше брать с небольшим запасом</li>
+                    <li>Цены могут варьироваться в зависимости от магазина и акций</li>
+                    <li>Общая сумма может быть уменьшена при покупке товаров по акциям</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Рецепты -->
+        <div id="recipes" class="tab-content">
+            <h2>Рецепты основных блюд</h2>
+
+            <h3>1. Запеченные перцы с сыром</h3>
+            <div class="recipe">
+                <p><strong>Ингредиенты на 2 порции:</strong></p>
+                <ul>
+                    <li>Болгарский перец - 2 шт</li>
+                    <li>Сыр твердый - 80г</li>
+                    <li>Зелень (петрушка/укроп) - 10г</li>
+                    <li>Оливковое масло - 1 ст.л.</li>
+                    <li>Соль, перец по вкусу</li>
+                </ul>
+                <p><strong>Приготовление:</strong></p>
+                <ol>
+                    <li>Разрежьте перцы вдоль, удалите семена и перегородки</li>
+                    <li>Натрите сыр на крупной терке, смешайте с мелко нарезанной зеленью</li>
+                    <li>Наполните половинки перцев сырной смесью</li>
+                    <li>Сбрызните оливковым маслом, посолите, поперчите</li>
+                    <li>Запекайте в разогретой до 180°C духовке 15-20 минут до мягкости перца</li>
+                </ol>
+                <p><strong>Подача:</strong> Можно посыпать свежей зеленью, подавать с хлебом.</p>
+                <p><strong>Калорийность порции (2000 ккал):</strong> 520 ккал | Б: 28г Ж: 22г У: 35г</p>
+            </div>
+
+            <h3>2. Куриные наггетсы домашние</h3>
+            <div class="recipe">
+                <p><strong>Ингредиенты на 2 порции:</strong></p>
+                <ul>
+                    <li>Куриное филе - 300г</li>
+                    <li>Яйцо - 1 шт</li>
+                    <li>Панировочные сухари - 50г</li>
+                    <li>Мука - 30г</li>
+                    <li>Соль, специи по вкусу</li>
+                    <li>Масло для жарки - 2 ст.л.</li>
+                </ul>
+                <p><strong>Приготовление:</strong></p>
+                <ol>
+                    <li>Куриное филе нарежьте на полоски толщиной 1,5-2 см</li>
+                    <li>Посолите, поперчите, добавьте любимые специи</li>
+                    <li>Обваляйте каждый кусочек в муке, затем в яйце, затем в сухарях</li>
+                    <li>Обжаривайте на среднем огне по 3-4 минуты с каждой стороны до золотистой корочки</li>
+                    <li>Выложите на бумажные полотенца, чтобы удалить лишний жир</li>
+                </ol>
+                <p><strong>Совет:</strong> Для более полезного варианта можно запекать в духовке при 200°C 15 минут.</p>
+                <p><strong>Калорийность порции (2000 ккал):</strong> 590 ккал | Б: 40г Ж: 25г У: 60г</p>
+            </div>
+
+            <h3>3. Творожная запеканка с ягодами</h3>
+            <div class="recipe">
+                <p><strong>Ингредиенты на 2 порции:</strong></p>
+                <ul>
+                    <li>Творог 5-9% - 300г</li>
+                    <li>Яйцо - 1 шт</li>
+                    <li>Манка - 20г</li>
+                    <li>Ягоды свежие/замороженные - 100г</li>
+                    <li>Мед - 10г (по желанию)</li>
+                </ul>
+                <p><strong>Приготовление:</strong></p>
+                <ol>
+                    <li>Творог разомните вилкой или протрите через сито</li>
+                    <li>Добавьте яйцо, манку, перемешайте до однородности</li>
+                    <li>Форму для запекания смажьте маслом, выложите творожную массу</li>
+                    <li>Сверху разложите ягоды</li>
+                    <li>Выпекайте при 180°C 25-30 минут до золотистой корочки</li>
+                </ol>
+                <p><strong>Подача:</strong> Полить медом перед подачей.</p>
+                <p><strong>Калорийность порции (2000 ккал):</strong> 480 ккал | Б: 30г Ж: 12г У: 50г</p>
+            </div>
+
+            <div class="note">
+                <h3>Дополнительные советы:</h3>
+                <ul>
+                    <li>Все рецепты адаптированы под исключения (без лука, кабачков и т.д.)</li>
+                    <li>Время приготовления большинства блюд - не более 30 минут</li>
+                    <li>Можно заранее подготовить ингредиенты для ускорения готовки</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openTab(evt, tabName) {
+            var tabContents = document.getElementsByClassName("tab-content");
+            for (var i = 0; i < tabContents.length; i++) {
+                tabContents[i].classList.remove("active");
+            }
+
+            var tabs = document.getElementsByClassName("tab");
+            for (var i = 0; i < tabs.length; i++) {
+                tabs[i].classList.remove("active");
+            }
+
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+</body>
+</html>
