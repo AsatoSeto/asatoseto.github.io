@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,13 +14,18 @@
             background-color: #f5f7fa;
             color: #333;
         }
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
         }
-        h1, h2, h3 {
+
+        h1,
+        h2,
+        h3 {
             color: #2c3e50;
         }
+
         .tabs {
             display: flex;
             flex-wrap: wrap;
@@ -27,6 +33,7 @@
             margin-bottom: 20px;
             gap: 5px;
         }
+
         .tab {
             padding: 10px 20px;
             background-color: #e0e0e0;
@@ -35,53 +42,71 @@
             transition: all 0.3s ease;
             font-weight: 500;
         }
-        .tab:hover, .tab.active {
+
+        .tab:hover,
+        .tab.active {
             background-color: #3498db;
             color: white;
         }
+
         .tab-content {
             display: none;
             background-color: white;
             padding: 25px;
             border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
             margin-bottom: 30px;
         }
+
         .tab-content.active {
             display: block;
             animation: fadeIn 0.5s ease;
         }
+
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
+
         table {
             width: 100%;
             border-collapse: collapse;
             margin-bottom: 25px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         }
-        th, td {
+
+        th,
+        td {
             padding: 12px 15px;
             text-align: left;
             border-bottom: 1px solid #e0e0e0;
         }
+
         th {
             background-color: #3498db;
             color: white;
             font-weight: 600;
         }
+
         tr:nth-child(even) {
             background-color: #f8f9fa;
         }
+
         .meal-type {
             font-weight: 600;
             color: #2c3e50;
         }
+
         .nutrition-facts {
             font-size: 0.9em;
             color: #7f8c8d;
         }
+
         .note {
             background-color: #e3f2fd;
             padding: 15px 20px;
@@ -89,6 +114,7 @@
             margin: 25px 0;
             border-left: 4px solid #3498db;
         }
+
         .total {
             font-weight: 600;
             background-color: #e8f5e9;
@@ -96,30 +122,55 @@
             border-radius: 5px;
             display: inline-block;
         }
+
         .recipe {
             margin-top: 15px;
             padding: 15px;
             background-color: #fff8e1;
             border-radius: 5px;
         }
+
         .price {
             font-weight: bold;
             color: #2e7d32;
         }
+
         .day-section {
             margin-bottom: 40px;
         }
+
         @media (max-width: 768px) {
             .tabs {
                 flex-direction: column;
             }
+
             table {
                 display: block;
                 overflow-x: auto;
             }
         }
+
+        .item-checkbox {
+            transform: scale(1.3);
+            cursor: pointer;
+        }
+
+        button {
+            padding: 8px 15px;
+            margin: 5px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h1>Полное меню на неделю для двоих</h1>
@@ -430,277 +481,322 @@
 
             <table>
                 <tr>
+                    <th style="width: 30px;"></th>
                     <th>Продукт</th>
                     <th>Количество</th>
                     <th>Цена (руб)</th>
                     <th>Сумма</th>
                 </tr>
                 <tr>
+                    <td><input type="checkbox" class="item-checkbox"></td>
                     <td>Куриное филе</td>
                     <td>1,5 кг</td>
                     <td class="price">350 руб/кг</td>
                     <td class="price">525 руб</td>
                 </tr>
                 <tr>
+                    <td><input type="checkbox" class="item-checkbox"></td>
                     <td>Филе индейки</td>
                     <td>400 г</td>
                     <td class="price">450 руб/кг</td>
                     <td class="price">180 руб</td>
                 </tr>
                 <tr>
+                    <td><input type="checkbox" class="item-checkbox"></td>
                     <td>Говяжий фарш</td>
                     <td>600 г</td>
                     <td class="price">500 руб/кг</td>
                     <td class="price">300 руб</td>
                 </tr>
                 <tr>
+                    <td><input type="checkbox" class="item-checkbox"></td>
                     <td>Говяжья вырезка</td>
                     <td>400 г</td>
                     <td class="price">700 руб/кг</td>
                     <td class="price">280 руб</td>
                 </tr>
                 <tr>
+                    <td><input type="checkbox" class="item-checkbox"></td>
                     <td>Филе трески</td>
                     <td>300 г</td>
                     <td class="price">700 руб/кг</td>
                     <td class="price">210 руб</td>
                 </tr>
                 <tr>
+                    <td><input type="checkbox" class="item-checkbox"></td>
                     <td>Филе судака</td>
                     <td>300 г</td>
                     <td class="price">750 руб/кг</td>
                     <td class="price">225 руб</td>
                 </tr>
                 <tr>
+                    <td><input type="checkbox" class="item-checkbox"></td>
                     <td>Консервированный тунец</td>
                     <td>1 банка (200 г)</td>
                     <td class="price">150 руб</td>
                     <td class="price">150 руб</td>
                 </tr>
                 <tr>
+                    <td><input type="checkbox" class="item-checkbox"></td>
                     <td>Яйца</td>
                     <td>20 шт</td>
                     <td class="price">120 руб/десяток</td>
                     <td class="price">240 руб</td>
                 </tr>
                 <tr>
+                    <td><input type="checkbox" class="item-checkbox"></td>
                     <td>Творог 5-9%</td>
                     <td>1,5 кг</td>
                     <td class="price">200 руб/кг</td>
                     <td class="price">300 руб</td>
                 </tr>
                 <tr>
+                    <td><input type="checkbox" class="item-checkbox"></td>
                     <td>Сыр твердый</td>
                     <td>300 г</td>
                     <td class="price">600 руб/кг</td>
                     <td class="price">180 руб</td>
                 </tr>
                 <tr>
+                    <td><input type="checkbox" class="item-checkbox"></td>
                     <td>Йогурт натуральный</td>
                     <td>1 л</td>
                     <td class="price">100 руб/литр</td>
                     <td class="price">100 руб</td>
                 </tr>
                 <tr>
+                    <td><input type="checkbox" class="item-checkbox"></td>
                     <td>Кефир</td>
                     <td>1 л</td>
                     <td class="price">90 руб/литр</td>
                     <td class="price">90 руб</td>
                 </tr>
                 <tr>
+                    <td><input type="checkbox" class="item-checkbox"></td>
                     <td>Сметана</td>
                     <td>200 г</td>
                     <td class="price">150 руб/кг</td>
                     <td class="price">30 руб</td>
                 </tr>
                 <tr>
+                    <td><input type="checkbox" class="item-checkbox"></td>
                     <td>Молоко</td>
                     <td>1 л</td>
                     <td class="price">80 руб/литр</td>
                     <td class="price">80 руб</td>
                 </tr>
                 <tr>
+                    <td><input type="checkbox" class="item-checkbox"></td>
                     <td>Гречка</td>
                     <td>500 г</td>
                     <td class="price">100 руб/кг</td>
                     <td class="price">50 руб</td>
                 </tr>
                 <tr>
+                    <td><input type="checkbox" class="item-checkbox"></td>
                     <td>Рис</td>
                     <td>500 г</td>
                     <td class="price">80 руб/кг</td>
                     <td class="price">40 руб</td>
                 </tr>
                 <tr>
+                    <td><input type="checkbox" class="item-checkbox"></td>
                     <td>Овсяные хлопья</td>
                     <td>400 г</td>
                     <td class="price">70 руб/кг</td>
                     <td class="price">28 руб</td>
                 </tr>
                 <tr>
+                    <td><input type="checkbox" class="item-checkbox"></td>
                     <td>Мука пшеничная</td>
                     <td>300 г</td>
                     <td class="price">60 руб/кг</td>
                     <td class="price">18 руб</td>
                 </tr>
                 <tr>
+                    <td><input type="checkbox" class="item-checkbox"></td>
                     <td>Манка</td>
                     <td>100 г</td>
                     <td class="price">80 руб/кг</td>
                     <td class="price">8 руб</td>
                 </tr>
                 <tr>
+                    <td><input type="checkbox" class="item-checkbox"></td>
                     <td>Мед</td>
                     <td>100 г</td>
                     <td class="price">500 руб/кг</td>
                     <td class="price">50 руб</td>
                 </tr>
                 <tr>
+                    <td><input type="checkbox" class="item-checkbox"></td>
                     <td>Орехи грецкие</td>
                     <td>150 г</td>
                     <td class="price">600 руб/кг</td>
                     <td class="price">90 руб</td>
                 </tr>
                 <tr>
+                    <td><input type="checkbox" class="item-checkbox"></td>
                     <td>Хлеб цельнозерновой</td>
                     <td>1 буханка</td>
                     <td class="price">60 руб</td>
                     <td class="price">60 руб</td>
                 </tr>
                 <tr>
+                    <td><input type="checkbox" class="item-checkbox"></td>
                     <td>Хлебцы</td>
                     <td>1 упаковка</td>
                     <td class="price">100 руб</td>
                     <td class="price">100 руб</td>
                 </tr>
                 <tr>
+                    <td><input type="checkbox" class="item-checkbox"></td>
                     <td>Помидоры</td>
                     <td>800 г</td>
                     <td class="price">200 руб/кг</td>
                     <td class="price">160 руб</td>
                 </tr>
                 <tr>
+                    <td><input type="checkbox" class="item-checkbox"></td>
                     <td>Огурцы</td>
                     <td>1 кг</td>
                     <td class="price">150 руб/кг</td>
                     <td class="price">150 руб</td>
                 </tr>
                 <tr>
+                    <td><input type="checkbox" class="item-checkbox"></td>
                     <td>Морковь</td>
                     <td>1 кг</td>
                     <td class="price">40 руб/кг</td>
                     <td class="price">40 руб</td>
                 </tr>
                 <tr>
+                    <td><input type="checkbox" class="item-checkbox"></td>
                     <td>Картофель</td>
                     <td>2 кг</td>
                     <td class="price">30 руб/кг</td>
                     <td class="price">60 руб</td>
                 </tr>
                 <tr>
+                    <td><input type="checkbox" class="item-checkbox"></td>
                     <td>Свекла</td>
                     <td>300 г</td>
                     <td class="price">50 руб/кг</td>
                     <td class="price">15 руб</td>
                 </tr>
                 <tr>
+                    <td><input type="checkbox" class="item-checkbox"></td>
                     <td>Стручковая фасоль (замороженная)</td>
                     <td>400 г</td>
                     <td class="price">200 руб/кг</td>
                     <td class="price">80 руб</td>
                 </tr>
                 <tr>
+                    <td><input type="checkbox" class="item-checkbox"></td>
                     <td>Болгарский перец</td>
                     <td>3 шт</td>
                     <td class="price">50 руб/шт</td>
                     <td class="price">150 руб</td>
                 </tr>
                 <tr>
+                    <td><input type="checkbox" class="item-checkbox"></td>
                     <td>Шампиньоны</td>
                     <td>300 г</td>
                     <td class="price">300 руб/кг</td>
                     <td class="price">90 руб</td>
                 </tr>
                 <tr>
+                    <td><input type="checkbox" class="item-checkbox"></td>
                     <td>Зелень (петрушка/укроп)</td>
                     <td>1 пучок</td>
                     <td class="price">30 руб</td>
                     <td class="price">30 руб</td>
                 </tr>
                 <tr>
+                    <td><input type="checkbox" class="item-checkbox"></td>
                     <td>Салат листовой</td>
                     <td>1 упаковка</td>
                     <td class="price">100 руб</td>
                     <td class="price">100 руб</td>
                 </tr>
                 <tr>
+                    <td><input type="checkbox" class="item-checkbox"></td>
                     <td>Яблоки</td>
                     <td>1,5 кг</td>
                     <td class="price">100 руб/кг</td>
                     <td class="price">150 руб</td>
                 </tr>
                 <tr>
+                    <td><input type="checkbox" class="item-checkbox"></td>
                     <td>Бананы</td>
                     <td>6 шт</td>
                     <td class="price">80 руб/кг</td>
                     <td class="price">120 руб</td>
                 </tr>
                 <tr>
+                    <td><input type="checkbox" class="item-checkbox"></td>
                     <td>Груши</td>
                     <td>5 шт</td>
                     <td class="price">120 руб/кг</td>
                     <td class="price">150 руб</td>
                 </tr>
                 <tr>
+                    <td><input type="checkbox" class="item-checkbox"></td>
                     <td>Сезонные ягоды</td>
                     <td>300 г</td>
                     <td class="price">400 руб/кг</td>
                     <td class="price">120 руб</td>
                 </tr>
                 <tr>
+                    <td><input type="checkbox" class="item-checkbox"></td>
                     <td>Масло подсолнечное</td>
                     <td>200 мл</td>
                     <td class="price">150 руб/литр</td>
                     <td class="price">30 руб</td>
                 </tr>
                 <tr>
+                    <td><input type="checkbox" class="item-checkbox"></td>
                     <td>Масло оливковое</td>
                     <td>100 мл</td>
                     <td class="price">600 руб/литр</td>
                     <td class="price">60 руб</td>
                 </tr>
                 <tr>
+                    <td><input type="checkbox" class="item-checkbox"></td>
                     <td>Сливочное масло</td>
                     <td>200 г</td>
                     <td class="price">400 руб/кг</td>
                     <td class="price">80 руб</td>
                 </tr>
                 <tr>
+                    <td><input type="checkbox" class="item-checkbox"></td>
                     <td>Томатная паста</td>
                     <td>100 г</td>
                     <td class="price">100 руб</td>
                     <td class="price">100 руб</td>
                 </tr>
                 <tr>
+                    <td><input type="checkbox" class="item-checkbox"></td>
                     <td>Ветчина</td>
                     <td>200 г</td>
                     <td class="price">500 руб/кг</td>
                     <td class="price">100 руб</td>
                 </tr>
                 <tr>
-                    <td colspan="3" style="text-align: right;"><strong>Итого:</strong></td>
+                    <td colspan="4" style="text-align: right;"><strong>Итого:</strong></td>
                     <td class="price">4,215 руб</td>
                 </tr>
             </table>
 
             <div class="note">
-                <h3>Советы по покупкам:</h3>
+                <h3>Как пользоваться списком:</h3>
                 <ul>
-                    <li>Мясо и рыбу можно закупать на 3-4 дня, затем докупать свежие</li>
-                    <li>Овощи и фрукты лучше брать с небольшим запасом</li>
-                    <li>Цены могут варьироваться в зависимости от магазина и акций</li>
-                    <li>Общая сумма может быть уменьшена при покупке товаров по акциям</li>
+                    <li>Отмечайте чекбоксы купленных продуктов</li>
+                    <li>Для удобства можно распечатать список (Ctrl+P)</li>
+                    <li>Цены ориентировочные — проверяйте акции в магазинах</li>
                 </ul>
+
+                <button onclick="checkAll()">Отметить все</button>
+                <button onclick="uncheckAll()">Снять отметки</button>
             </div>
         </div>
 
@@ -1013,6 +1109,20 @@
             document.getElementById(tabName).classList.add("active");
             evt.currentTarget.classList.add("active");
         }
+        function checkAll() {
+            const checkboxes = document.querySelectorAll('.item-checkbox');
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = true;
+            });
+        }
+
+        function uncheckAll() {
+            const checkboxes = document.querySelectorAll('.item-checkbox');
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = false;
+            });
+        }
     </script>
 </body>
+
 </html>
